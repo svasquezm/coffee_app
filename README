@@ -1,0 +1,59 @@
+/* ---------------- README ---------------- */
+/* Usage instructions (copy/paste into README.md) */
+
+/*
+# nodejs-coffee-api
+
+Simple REST API in Node.js using Express and MySQL (Sequelize).
+
+## Requirements
+- Node.js >= 16
+- MySQL server
+
+## Installation
+1. Clone or copy files into a folder.
+2. Create DB in MySQL (example):
+
+   CREATE DATABASE coffee_db;
+
+3. Copy `.env.example` to `.env` and set your DB credentials.
+4. Install dependencies:
+
+   npm install
+
+5. Start the server:
+
+   npm run start
+
+   or during development:
+
+   npm run dev
+
+6. The server will create the tables `coffee` and `coffee_drink` automatically (via `sequelize.sync()`).
+
+## Endpoints
+- GET `/coffee/list` -> returns all coffees
+- GET `/coffee/drinks/list` -> returns all coffee drinks (includes coffee info)
+- POST `/coffee/drinks` -> create a coffee drink
+  - Body JSON: `{ "name": "Espresso Martini", "coffee_id": 1, "description": "A cocktail with espresso" }`
+
+## Example CURLs
+
+- List coffees:
+
+  curl -s http://localhost:3000/coffee/list | jq
+
+- List drinks:
+
+  curl -s http://localhost:3000/coffee/drinks/list | jq
+
+- Create drink:
+
+  curl -X POST http://localhost:3000/coffee/drinks \
+    -H 'Content-Type: application/json' \
+    -d '{"name":"Americano","coffee_id":1,"description":"Espresso diluted with hot water"}'
+
+## Notes
+- For production use, replace `sequelize.sync()` with proper migrations (e.g. using `sequelize-cli`).
+- Add authentication/authorization if needed.
+*/
