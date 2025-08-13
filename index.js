@@ -23,17 +23,15 @@ async function getParameter(name, withDecryption = false) {
 // Load environment variables
 (async () => {
     try {
-      const dbUser = await getParameter("/prod/rds/coffee/password", true);
-  
-      console.log("Usuario DB:", dbUser);
-  
-      const DB_HOST = await getParameter("/prod/rds/coffee/password", true) || 'localhost';
+      const DB_HOST = await getParameter("/prod/rds/coffee/host", true) || 'localhost';
       const DB_PORT = process.env.DB_PORT || 3306;
       const DB_NAME = process.env.DB_NAME || 'coffee_db';
       const DB_USER = await getParameter("/prod/rds/coffee/user", true) || 'root';
       const DB_PASSWORD = await getParameter("/prod/rds/coffee/password", true) || '';
       const PORT = process.env.PORT || 3000;
       
+      console.log("Usuario DB:", dbUser);
+
       // Initialize Sequelize
       const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
         host: DB_HOST,
