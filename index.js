@@ -25,7 +25,7 @@ async function getParameter(name, withDecryption = false) {
     try {
       const DB_HOST = await getParameter("/prod/rds/coffee/host", true) || 'localhost';
       const DB_PORT = process.env.DB_PORT || 3306;
-      const DB_NAME = process.env.DB_NAME || 'coffee_db';
+      const DB_NAME = 'coffee-db';
       const DB_USER = await getParameter("/prod/rds/coffee/user", true) || 'root';
       const DB_PASSWORD = await getParameter("/prod/rds/coffee/password", true) || '';
       const PORT = process.env.PORT || 3000;
