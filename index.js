@@ -30,8 +30,6 @@ async function getParameter(name, withDecryption = false) {
       const DB_PASSWORD = await getParameter("/prod/rds/coffee/password", true) || '';
       const PORT = process.env.PORT || 3000;
       
-      console.log("Usuario DB:", dbUser);
-
       // Initialize Sequelize
       const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
         host: DB_HOST,
