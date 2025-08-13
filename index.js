@@ -3,11 +3,11 @@
 
 require('dotenv').config();
 
-const ssmClient = new SSMClient({ region: "us-east-1" });
 const { SSMClient, GetParameterCommand } = require("@aws-sdk/client-ssm");
 const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
 
+const ssmClient = new SSMClient({ region: "us-east-1" });
 const app = express();
 app.use(express.json());
 
